@@ -1,29 +1,33 @@
 class Triangle{
-	constructor(height, length){
-	  this.height = height;
-	  this.length = length;
-	 // this.perimeter = height+length+Math.sqrt((height*height)+(length*length));
-	}
-	 // get area() {
-	 //   var area = (0.5*this.height * this.width);
-  //     console.log(area)
-  //   }
+  constructor(height, length){
+    this.height = height;
+    this.length = length;
+    this.perimeter = height+length+Math.sqrt((height*height)+(length*length));
+  }
+    get area() {
+      console.log( (0.5*this.height * this.width));
+    }
 }
-
+Triangle.prototype.speak = function(){
+  console.log("I'm Equilateral - my sides are all " + this.height +" units");
+    }
 class Equilateral extends Triangle{
-	constructor(height){
-		super(height, height);
-		this.perimeter = (3*height);
-    function sayName(){
-		  console.log("I'm Equilateral - my sides are all " + this.height +" units");
-		}
-	}
+  constructor(height){
+    super(height, height);
+    this.perimeter = (3*height);
+  //   sayName(){
+    //   return ("I'm Equilateral - my sides are all " + this.height +" units");
+    // }
+  }
 }
 
 var equi = new Equilateral(5);
 var obtuse = new Triangle(4, 1);
 console.log(obtuse.height);
 console.log(equi.height);
+console.log(equi.perimeter);
+// equi.sayName;
+equi.speak;
 
 
 class Polygon {
