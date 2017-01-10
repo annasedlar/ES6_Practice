@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Anna's React Google Maps (Reborn)</title>
+	<style> 
+	#map{
+		height:  100vh;
+		width:  65%;
+		float: left;
+		border: 3px solid black;
+	}
+	html, body{
+		height:  100%;
+		margin:  0;
+		padding:  0;
+	}
+	th, td{
+		border: 1px solid black;
+		text-align: center;
+		width: 150px;
+	}
+	table{
+		float: right;
+	}
+
+	</style>
+</head>
+<body>
+    <div id="map"></div>
+    <div id="cities-container"></div>
+
+	<!-- Include react, reactDOM, and babel -->
+	<script src="https://fb.me/react-15.1.0.js"></script>
+	<script src="https://fb.me/react-dom-15.1.0.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD94e5eB8SkTv6y97pdRpsY3t4VQaz6Nqc"
+    ></script>
+
+	<script type="text/javascript" src="cities.js"></script>
+	<script type="text/babel" src="google-react.jsx"></script>
+
+</body>
+</html>
+<!-- 
+
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script> -->
+
+
+
+
+
+
+
+
+
