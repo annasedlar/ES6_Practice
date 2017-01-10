@@ -7,7 +7,7 @@
 		height:  100vh;
 		width:  65%;
 		float: left;
-		border: 3px solid black;
+		border-right: 3px solid black;
 	}
 	html, body{
 		height:  100%;
@@ -18,16 +18,39 @@
 		border: 1px solid black;
 		text-align: center;
 		width: 150px;
+		width:  150px;
+		height: 25px;
 	}
 	table{
 		float: right;
 	}
+	#header{
+		text-align:  center;
+		font-size: 50px;
+		font-style: century;
+		border-bottom:  5px solid black;
+	}
+	#border{
+		margin: auto;
+		text-align: center;
+		padding: 20px;
+	}
+	.city-name{
+		text-decoration: underline;
+		cursor: pointer;
+		color: blue;
+	}
+
 
 	</style>
 </head>
 <body>
-    <div id="map"></div>
-    <div id="cities-container"></div>
+	<div id="border">
+		<div id="header">39 Largest US Cities</div>
+	    <div id="map"></div>
+	    <div id="cities-container"></div>
+    </div>
+
 
 	<!-- Include react, reactDOM, and babel -->
 	<script src="https://fb.me/react-15.1.0.js"></script>
