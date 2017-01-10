@@ -1,4 +1,4 @@
-//**************************google/maps stuff**********************************************
+//**************************Google/maps stuff****************************************
 //***********************************************************************************
 var map = new google.maps.Map(
 	document.getElementById('map'), 
@@ -14,10 +14,19 @@ function createMarker(city){
 		lat:city.lat,
 		lng:city.lon
 	}
-}
+	var marker = new google.maps.Marker({
+		position: cityLL, 
+		map: map, 
+		title: city.city,
+		icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2%7CFE7569'
+	})
+};
 
 
-//**************************react stuff**********************************************
+
+
+
+//**************************React stuff**********************************************
 //***********************************************************************************
 
 function GoogleCity(props){
@@ -27,7 +36,7 @@ function GoogleCity(props){
 			<td className="city-rank">{props.cityObject.yearRank}</td>
 		</tr>
 		)
-}
+};
 
 var Cities = React.createClass({
 	render: function(){
@@ -52,42 +61,17 @@ var Cities = React.createClass({
 			</div>
 		)
 	}
-})
+});
 
 ReactDOM.render(
 	<Cities cities={cities} />,
 	document.getElementById('cities-container')
 	)
 
-// ES5 way - we pass the createClass and object. Must have a render property
-// function GoogleCity(props){
-// 	return(
-// 		<div className="cityName">
-// 			<table>
-// 				<tr>
-// 					<td>{props.cityObject.city}</td>
-// 					<td>{props.cityObject.yearRank}</td>
-// 				</tr>
-// 			</table>
-// 		</div>
-// 		)
-// }
 
-// var Cities = React.createClass({
-// 	render: function(){
-// 		var cityRows = [];
-// 		this.props.cities.map(function(currentCity, index){
-// 			cityRows.push(<GoogleCity cityObject={currentCity} key={index} />)
-// 		})
-// 		return(
-// 			<div>
-// 				{cityRows}
-// 			</div>
-// 			)
-// 	}
-// });
 
-// ReactDOM.render(
-// 	<Cities cities={cities} />,
-// 	document.getElementById('cities-container')
-// 	)
+
+
+
+
+
