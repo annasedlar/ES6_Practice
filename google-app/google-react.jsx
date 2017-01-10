@@ -47,7 +47,7 @@ var GoogleCity = React.createClass({
 	render: function(){
 		return(
 			<tr>
-				<td className="city-name" onClick={this.handleClickedCity}>{this.props.cityObject.city}</td>
+				<td className="city-name" onClick={this.handleClickedCity}>${this.props.cityObject.city}</td>
 				<td className="city-rank">{this.props.cityObject.yearRank}</td>
 			</tr>
 		)
