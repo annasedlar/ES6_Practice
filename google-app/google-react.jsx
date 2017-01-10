@@ -8,6 +8,8 @@ var map = new google.maps.Map(
 	}
 );
 
+var infoWindow = new google.maps.InfoWindow({});
+
 //a function to place a marker at a city location
 function createMarker(city){
 	var cityLL = {
@@ -19,6 +21,10 @@ function createMarker(city){
 		map: map, 
 		title: city.city,
 		icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2%7CFE7569'
+	});
+	google.maps.event.addListener(marker, 'click', function(){
+		infoWindow.setContent(`<h2> ${city.city}</h2><div>${city.state}</div><div>{city.yearEstimate}</div>`),
+		infoWindow.open(map, marker);
 	})
 };
 
@@ -39,14 +45,40 @@ function GoogleCity(props){
 };
 
 var Cities = React.createClass({
+	getInitialState: function() {
+		return{
+			currCities: this.props.cities
+		}
+	},
+
+	handleInputChange: function(event){
+		var newFilterValue = event.target.value;
+		var filteredCitiesArray = [];
+		//loops through list of cities
+		this.props.cities.map(function(currCity, index){
+			if(currCity.city.indexOf(newFilterValue) !== -1){
+				filteredCitiesArray.push(currCity);
+			}
+		});
+		this.setState({
+				currCities: filteredCitiesArray
+		}); 
+		console.log(filteredCitiesArray);
+
+	},
+
 	render: function(){
 		var cityRows = [];
-		this.props.cities.map(function(currentCity, index){
+		this.state.currCities.map(function(currentCity, index){
 			createMarker(currentCity);
 			cityRows.push(<GoogleCity cityObject={currentCity} key={index} />)
 		});
 		return(
 			<div>
+			<form onSumbit={this.updateMarkers}>
+				<input type="text" onChange={this.handleInputChange}/>
+				<input type="submit" value="Update Markers" />
+			</form>
 				<table>
 					<thead>
 						<tr>
